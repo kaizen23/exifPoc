@@ -100,6 +100,7 @@ export class PhotoContainerComponent implements OnInit, AfterViewInit {
       // d2.style.background = 'black';
       d2.style.background = `url(${photoInfo.thumbnailUrl}) no-repeat center`;
       d2.style.backgroundSize = `cover`;
+      d2.style.transform = 'rotate(90deg)';
       // d2.style.backgroundColor = `black`;
       this.renderer.appendChild(this.d1.nativeElement, d2.cloneNode(true));
 
