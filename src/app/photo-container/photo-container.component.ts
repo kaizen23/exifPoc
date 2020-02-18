@@ -92,9 +92,15 @@ export class PhotoContainerComponent implements OnInit, AfterViewInit {
     const d2 = this.renderer.createElement('div');
     const text = this.renderer.createText('two');
     this.renderer.appendChild(d2, text);
+    this.renderer.addClass(d2, 'image-container');
     this.realizationConfirmationPhotos.forEach((photoInfo) => {
-      // const blobTemp =  window.URL.createObjectURL(photoInfo.blob);
-      // d2.style.background = blobTemp;
+      const contentType = 'text/csv';
+      const csvFile = new Blob([photoInfo.thumbnailUrl]);
+      const blobTemp = window.URL.createObjectURL(csvFile);
+      // d2.style.background = 'black';
+      d2.style.background = `url(${photoInfo.thumbnailUrl}) no-repeat center`;
+      d2.style.backgroundSize = `cover`;
+      // d2.style.backgroundColor = `black`;
       this.renderer.appendChild(this.d1.nativeElement, d2.cloneNode(true));
 
     }
